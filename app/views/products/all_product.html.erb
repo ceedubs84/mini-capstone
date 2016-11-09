@@ -1,4 +1,16 @@
-<h1>The Tea Store</h1>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <button type="button" class="btn btn-default navbar-btn">Sign in</button>
+      <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Library</a></li>
+        <li class="active">Data</li>
+      </ol>
+    <h1>The Tea Store</h1>
+  </div>
+</nav>
+
+
 <h2>All Products</h2>
 <% @products.each do |product| %>
   <h2><%= product.name %></h2>
