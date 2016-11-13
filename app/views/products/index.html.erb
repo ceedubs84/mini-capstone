@@ -13,8 +13,8 @@
 
 <h2>All Products</h2>
 <% @products.each do |product| %>
-  <h2><%= product.name %></h2>
+  <h2><a href="/products/<%= product.id %>"><%= product.name %></a></h2>
   <p><%= product.price %></p>
-  <img src= "<%= product.image %>">
+  <img src="<%= product.image %>">
   <p><%= product.description %></p>
 <% end %>
