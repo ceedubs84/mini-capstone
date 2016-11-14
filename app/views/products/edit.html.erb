@@ -1,5 +1,5 @@
 <h1>Edit Product</h1>
-<%= form_tag "/products/#{@product.id}", method: :patch do %>
+<%= form_tag "/products/#{@product.name}", method: :patch do %>
   <div>
     <%= label_tag :name %>
     <%= text_field_tag :name, @product.name, class: 'form-control' %>
@@ -18,3 +18,7 @@
   </div>
   <%= submit_tag "Edit Product", class: "btn btn-primary" %>
 <% end %>
+
+<div>
+  <a href="/products">Back to Home</a>
+</div>
