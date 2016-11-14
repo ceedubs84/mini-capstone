@@ -41,5 +41,9 @@ class ProductsController < ApplicationController
     product.save
     render 'update.html.erb'
   end
+
+  def destroy
+    render 'destroy.html.erb'
+  end
   
 end
