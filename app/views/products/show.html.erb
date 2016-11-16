@@ -1,13 +1,17 @@
 <h1>Product Info</h1>
-<h2><%= @product.name %></h2>
-<p><%= @product.price %></p>
-<img src= "<%= @product.image %>">
-<p><%= @product.description %></p>
+<div class="row">
+  <div class="col-md-8">
+    <h2><%= @product.name %></h2>
+    <img src= "<%= @product.image %>">
+  </div>  
+  <div class="col-md-4">
+    <div>
+      <p><%= @product.dollar_price %></p>
+      <p><%= @product.description %></p>
+    </div>
+  </div>  
 <div>
-  <a href="/products">Back to Home</a>
-</div>
-<div>
-  <a href="/products/<%= @product.id %>/edit">Edit Product</a>
+  <a class="btn btn-success" href="/products/<%= @product.id %>/edit" role="button">Edit Product</a>
 </div>
 <div>
   <%= link_to "Destroy this Product", "/products/#{@product.id}", method: :delete %>
