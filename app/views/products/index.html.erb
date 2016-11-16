@@ -1,12 +1,13 @@
-<div>
-  <h4><a href="/products/new">Create New Product</a></h4>
-</div>
-
-
 <h2>All Products</h2>
-<% @products.each do |product| %>
-  <h2><a href="/products/<%= product.id %>"><%= product.name %></a></h2>
-  <p><%= product.price %></p>
-  <img src="<%= product.image %>">
-  <p><%= product.description %></p>
-<% end %>
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col-md-4">
+      <div class="well">
+        <h2><a href="/products/<%= product.id %>"><%= product.name %></a></h2>
+        <p><%= product.price %></p>
+        <img src="<%= product.image %>">
+        <p><%= product.description %></p>
+      </div>  
+    </div>  
+  <% end %>
+</div>
