@@ -1,5 +1,5 @@
 <h1>Edit Product</h1>
-<%= form_tag "/products/#{@product.name}", method: :patch do %>
+<%= form_tag "/products/#{@product.id}", method: :patch do %>
   <div>
     <%= label_tag :name %>
     <%= text_field_tag :name, @product.name, class: 'form-control' %>

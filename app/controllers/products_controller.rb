@@ -15,8 +15,9 @@ class ProductsController < ApplicationController
       image: params["image"],
       description: params["description"]
     )
+    flash[:success] = "Product Created Successfully!!"
     product.save
-    render 'create.html.erb'
+    redirect_to '/products'
   end
 
   def show
