@@ -4,8 +4,8 @@
     <div class="col-md-4">
       <div class="well">
         <h2><a href="/products/<%= product.id %>"><%= product.name %></a></h2>
-        <p>Price/kilo: <%= product.dollar_price %></p>
-        <p>Total price: <%= product.total %></p>
+        <p>Price/kilo: <%= number_to_currency(product.price) %></p>
+        <p>Total w/tax: <%= number_to_currency(product.total) %></p>
         <div>
           <% if product.sale_message == "Discount Item!" %>
             <h3 style=color:red><strong><%= product.sale_message %></strong></h3>
