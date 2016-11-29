@@ -1,8 +1,16 @@
 class ProductsController < ApplicationController
   def index
-    sort_attribute = params[:sort]
-    sort_order = params[:sort_order]
-    @products = Product.order(sort_attribute)
+    only_show_discount = params[:discount] == "true"
+    if only_show_discount
+      @products = Product.where("price < ?", 10)
+    elsif params[:category_name] != nil
+      selected_category = Category.find_by(name: params[:category_name])
+      @products = selected_category.products
+    else
+      sort_attribute = params[:sort] || "name"
+      sort_order = params[:sort_order] || "asc"
+      @products = Product.order(sort_attribute => sort_order)
+    end
     render 'index.html.erb'
   end
 
@@ -11,45 +19,47 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product = Product.new(
-      name: params["name"],
-      price: params["price"],
-      image: params["image"],
-      description: params["description"]
+    @product = Product.new(
+      name: params[:name],
+      description: params[:description],
+      image: params[:image],
+      price: params[:price]
     )
-    flash[:success] = "Product Created Successfully!!"
-    product.save
-    redirect_to '/products'
+    @product.save
+    flash[:success] = "Product Created"
+    redirect_to "/products/#{@product.id}"
   end
 
   def show
-    product_id = params[:id]
-    @product = Product.find_by(id: product_id)
+    if params[:id] == "random"
+      products = Product.all
+      @product = products.sample
+    else
+      @product = Product.find_by(id: params[:id])
+    end
     render 'show.html.erb'
   end
 
   def edit
-    product_id = params[:id]
-    @product = Product.find_by(id: product_id)
+    @product = Product.find_by(id: params[:id])
     render 'edit.html.erb'
   end
 
   def update
-    product_id = params[:id]
-    product = Product.find_by(id: product_id)
-    product.name = params[:name]
-    product.price = params[:price]
-    product.image = params[:image]
-    product.description = params[:description]
-    product.save
-    render 'update.html.erb'
+    @product = Product.find_by(id: params[:id])
+    @product.name = params[:name]
+    @product.description = params[:description]
+    @product.image = params[:image]
+    @product.price = params[:price]
+    @product.save
+    flash[:success] = "Product Updated"
+    redirect_to "/products/#{@product.id}"
   end
 
-  def destroy
-    product_id = params[:id]
-    product = Product.find_by(id: product_id)
-    product.destroy
-    render 'destroy.html.erb'
+  def search
+    search_term = params[:search]
+    @products = Product.where("name LIKE ?", '%' + search_term + '%')
+    render 'index.html.erb'
   end
   
 end
