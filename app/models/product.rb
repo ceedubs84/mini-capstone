@@ -2,21 +2,18 @@ class Product < ApplicationRecord
   belongs_to :supplier
   has_many :images
   has_many :category_products
-
-  def sale_message
-    sale_message = ""
-    if price.to_i < 10
-      sale_message = "Discount Item!"
-    else 
-      sale_message = "Quotidian Worth!"
-    end
-  end
+  has_many :categories, through: :category_products
 
   def tax
-    (price.to_i * 0.09).to_f
+    price.to_f * 0.09
   end
 
   def total
-    (price.to_f + tax).to_s
+    price.to_f + tax
   end
+
+  def discounted?
+    price.to_f < 10
+  end
+
 end

@@ -13,7 +13,7 @@
           <% end %>
           <p>Tax: <%= number_to_currency(@product.tax) %></p>
           <p>Total: <%= number_to_currency(@product.total) %></p>
-          <p>Sold by <%= @product.supplier.name %>!</p>
+          <p>Supplier: <%= @product.supplier.name %>!</p>
           <% @product.images.each do |image| %>
             <img src="<%= image.url %>" alt="<%= @product.name %>" class="img-responsive">
           <% end %>
