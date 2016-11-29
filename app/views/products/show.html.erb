@@ -9,15 +9,15 @@
             <p>Discount Item!</p>
           <% else %>
             <p>Price: <%= number_to_currency(@product.price) %></p>
-            <p>Everyday Value!</p>
+            <p>Description: <%= @product.description %></p>
+            <p><em>Quotidian Worth; Our Promise to</em> <strong>YOU</strong>!</p>
           <% end %>
           <p>Tax: <%= number_to_currency(@product.tax) %></p>
           <p>Total: <%= number_to_currency(@product.total) %></p>
-          <p>Supplier: <%= @product.supplier.name %>!</p>
+          <p>Supplier: <%= @product.supplier.name %></p>
           <% @product.images.each do |image| %>
             <img src="<%= image.url %>" alt="<%= @product.name %>" class="img-responsive">
           <% end %>
-          <p>Description: <%= @product.description %></p>
           <%= form_tag "/orders", method: :post do %>
             <div>
               <%= label_tag :quantity %>
