@@ -1,10 +1,86 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
+// body {
+//   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+//   background-image: url();
+// }
+// .well img {
+//   width: 100%;
+// }
+ html,body{
+  background-image: url('cork-wallet.png') no-repeat top;
+  background-size: cover;
+ }
+ header{
+  margin-bottom: 9%;
+ }
+ .navbar-default{
+  background: transparent;
+  border:none;
+ }
+ .navbar-default .navbar-nav > li > a {
+  color: #73152D;
+  font-size: 100%;
+}
+ .container-fluid{
+  padding:0 5%;
+ }
+ h1{
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-  background-image: url('cork-wallet.png');
+  font-size: 12vw;
+  color:#73152D;
+ }
+ @media all and (min-width: 768px){
+   h1{
+    font-size: 6vw;
+   }
 }
-.well img {
-  width: 100%;
+header h1{
+  text-align: center;
 }
+ h2{
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 7vw;
+  line-height: 1.25;
+  color:#73152D;
+ }
+ @media all and (min-width: 768px){
+   h2{
+    font-size: 2.5vw;
+   }
+}
+ .rating{
+  color:#73152D;
+ }
+ a{
+  color:#1A1830;
+ }
+ input{
+  color:#333;
+ }
+ .product_single{
+  background: #665441;
+  background:rgba(139,95,73,0.5);
+  padding:0 15px 15px 15px;
+  color:#FFF;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.35);
+  min-height: 580px;
+  border-radius: 15px;
+  border: solid #575757 4px;
+  margin-bottom: 15px;
+ }
+ .product_single_image{
+  margin-bottom: 20px;
+ }
+ .btn{
+  margin-top:20px;
+ }
+
+ .product_header{
+  height: 50px;
+ }
+
+ .discount-item {
+  color: red;
+ }

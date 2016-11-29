@@ -1,7 +1,7 @@
 <h1>Product Info</h1>
 <section>
   <div class="row">    
-    <div class="col-sm-8 col-sm-offset-2">
+    <div class="col-md-4">
       <div class="product_single">
           <h2><%= @product.name %></h2>
           <% if @product.discounted? %>
@@ -15,9 +15,11 @@
           <p>Tax: <%= number_to_currency(@product.tax) %></p>
           <p>Total: <%= number_to_currency(@product.total) %></p>
           <p>Supplier: <%= @product.supplier.name %></p>
-          <% @product.images.each do |image| %>
-            <img src="<%= image.url %>" alt="<%= @product.name %>" class="img-responsive">
-          <% end %>
+          <div class="col-md-8">
+            <% @product.images.each do |image| %>
+              <img src="<%= image.url %>" alt="<%= @product.name %>" class="img-responsive">
+            <% end %>
+          </div>
           <%= form_tag "/orders", method: :post do %>
             <div>
               <%= label_tag :quantity %>
