@@ -6,16 +6,19 @@
   </div>  
   <div class="col-md-4">
     <div>
-      <p>Price/kilo: <%= number_to_currency(@product.price) %></p>
-      <p>Total w/tax: <%= number_to_currency(@product.total) %></p>
       <div>
-          <% if @product.sale_message == "Discount Item!" %>
-            <h3 style=color:red><strong><%= @product.sale_message %></strong></h3>
-          <% else %>
-            <strong><%= @product.sale_message %></strong>
-          <% end %>  
-        </div>
-      <p><%= @product.description %></p>
+        <% if @product.sale_message == "Discount Item!" %>
+          <h3 style=color:red><strong><%= @product.sale_message %></strong></h3>
+        <% else %>
+          <strong><%= @product.sale_message %></strong>
+        <% end %>  
+      </div>
+      <h4><%= @product.description %></h4>
+      <h5>Supplier: <%= @product.supplier.name %></h5>
+      <hr></hr>
+      <h4>Price/kilo: <%= number_to_currency(@product.price) %></h4>
+      <h4>Total w/tax: <%= number_to_currency(@product.total) %></h4>
+      <hr></hr>
     </div>
   </div>  
 <div>
