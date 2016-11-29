@@ -1,21 +1,19 @@
 <h2>All Products</h2>
-<div class="row">
-  <% @products.each do |product| %>
-    <div class="col-md-4">
-      <div class="well">
-        <h2><a href="/products/<%= product.id %>"><%= product.name %></a></h2>
-        <p>Price/kilo: <%= number_to_currency(product.price) %></p>
-        <p>Total w/tax: <%= number_to_currency(product.total) %></p>
-        <div>
-          <% if product.sale_message == "Discount Item!" %>
-            <h3 style=color:red><strong><%= product.sale_message %></strong></h3>
-          <% else %>
-            <strong><%= product.sale_message %></strong>
-          <% end %>  
+<section>
+  <div class="row">
+
+    <% @products.each do |product| %>
+
+      <div class="col-sm-4">
+        <div class="product_single">
+          <h2 class="product_header"><%= product.name %></h2>
+          <p>Supplier: <%= product.supplier.name %></p>
+          <p>Price: <%= product.price %></p>
+          <a href="/products/<%= product.id %>" title="View Product"><img src="<%= product.images.first.url %>" alt="<%= product.name %>" class="img-responsive product_single_image"></a>
+          <p>Description: <%= product.description %></p>
         </div>
-        <img src="<%= product.images.first.url %>">
-        <p><%= product.description %></p>
-      </div>  
-    </div>  
-  <% end %>
-</div>
+      </div>
+    <% end %>
+
+  </div>
+</section>
