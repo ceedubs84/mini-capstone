@@ -5,9 +5,10 @@
 //   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 //   background-image: url();
 // }
-// .well img {
-//   width: 100%;
-// }
+.well img {
+  width: 100%;
+}
+
  html,body{
   background-image: url('cork-wallet.png') no-repeat top;
   background-size: cover;
@@ -16,15 +17,18 @@
   margin-bottom: 9%;
  }
  .navbar-default{
-  background: transparent;
-  border: none;
+  background-image: url('cork-wallet.png') no-repeat top;
+  border: solid;
  }
  .navbar-default .navbar-nav > li > a {
   color: #0000cc;
-  font-size: 100%;
+  font-size: 125%;
 }
  .container-fluid{
   padding:0 5%;
+ }
+ .btn .btn-shopping{
+  text-align: right;
  }
  h1{
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
