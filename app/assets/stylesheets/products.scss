@@ -17,10 +17,10 @@
  }
  .navbar-default{
   background: transparent;
-  border:none;
+  border: none;
  }
  .navbar-default .navbar-nav > li > a {
-  color: #73152D;
+  color: #0000cc;
   font-size: 100%;
 }
  .container-fluid{
@@ -29,7 +29,7 @@
  h1{
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
   font-size: 12vw;
-  color:#73152D;
+  color:#0000cc;
  }
  @media all and (min-width: 768px){
    h1{
@@ -43,7 +43,7 @@ header h1{
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
   font-size: 7vw;
   line-height: 1.25;
-  color:#73152D;
+  color:#0000cc;
  }
  @media all and (min-width: 768px){
    h2{
@@ -51,23 +51,22 @@ header h1{
    }
 }
  .rating{
-  color:#73152D;
+  color:#6666ff;
  }
  a{
-  color:#1A1830;
+  color:#6666ff;
  }
  input{
-  color:#333;
+  color:#6666ff;
  }
  .product_single{
-  background: #665441;
-  background:rgba(139,95,73,0.5);
+  background: #e6e6ff;
   padding:0 15px 15px 15px;
-  color:#FFF;
+  color: #0000cc;
   box-shadow: 0 3px 3px rgba(0,0,0,0.35);
   min-height: 580px;
   border-radius: 15px;
-  border: solid #575757 4px;
+  border: solid #00008b 4px;
   margin-bottom: 15px;
  }
  .product_single_image{
