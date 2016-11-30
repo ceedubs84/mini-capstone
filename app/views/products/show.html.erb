@@ -1,40 +1,40 @@
 <h1>Product Info</h1>
 <section>
-<div class="container-fluid">
-  <div class="row">    
-    <div class="col-md-4">
-      <div class="product_single">
-          <h2><%= @product.name %></h2>
-          <% if @product.discounted? %>
-            <p class="discount-item">Price: <%= number_to_currency(@product.price) %></p>
-            <p>Discount Item!</p>
-          <% else %>
-            <p>Price: <%= number_to_currency(@product.price) %></p>
-            <p>Description: <%= @product.description %></p>
-            <p><em>Quotidian Worth; Our Promise to</em> <strong>YOU</strong>!</p>
-          <% end %>
-          <p>Tax: <%= number_to_currency(@product.tax) %></p>
-          <p>Total: <%= number_to_currency(@product.total) %></p>
-          <p>Supplier: <%= @product.supplier.name %></p>
-          <div class="col-md-8">
-            <% @product.images.each do |image| %>
-              <img src="<%= image.url %>" alt="<%= @product.name %>" class="img-responsive">
+  <div class="container-fluid">
+    <div class="row">    
+      <div class="col-md-4">
+        <div class="product_single">
+            <h2><%= @product.name %></h2>
+            <% if @product.discounted? %>
+              <p class="discount-item">Price: <%= number_to_currency(@product.price) %></p>
+              <p>Discount Item!</p>
+            <% else %>
+              <p>Price: <%= number_to_currency(@product.price) %></p>
+              <p>Description: <%= @product.description %></p>
+              <p><em>Quotidian Worth; Our Promise to</em> <strong>YOU</strong>!</p>
             <% end %>
-          </div>
-          <%= form_tag "/orders", method: :post do %>
-            <div>
-              <%= label_tag :quantity %>
-              <%= text_field_tag :quantity %>
+            <p>Tax: <%= number_to_currency(@product.tax) %></p>
+            <p>Total: <%= number_to_currency(@product.total) %></p>
+            <p>Supplier: <%= @product.supplier.name %></p>
+            <div class="col-md-8">
+              <% @product.images.each do |image| %>
+                <img src="<%= image.url %>" alt="<%= @product.name %>" class="img-responsive">
+              <% end %>
             </div>
-            <div>
-              <%= hidden_field_tag :product_id, @product.id %>
-            </div>
-            <%= submit_tag "Place order!" %>
-          <% end %>
-          <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
-          <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
+            <%= form_tag "/orders", method: :post do %>
+              <div>
+                <%= label_tag :quantity %>
+                <%= text_field_tag :quantity %>
+              </div>
+              <div>
+                <%= hidden_field_tag :product_id, @product.id %>
+              </div>
+              <%= submit_tag "Place order!" %>
+            <% end %>
+            <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
+            <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
+        </div>
       </div>
     </div>
-  </div>
-</div>  
+  </div>  
 </section>
