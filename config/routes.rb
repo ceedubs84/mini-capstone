@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
 
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
   get '/suppliers' => 'suppliers#index'
   get '/suppliers/new' => 'suppliers#new'
   post '/suppliers' => 'suppliers#create'
