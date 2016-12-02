@@ -2,9 +2,9 @@
 <h2>Order id: <%= @order.id + 55554 %></h2>
 <h2>Quantity: <%= @order.quantity %></h2>
 <hr>
-<h3>Subtotal: <%= @order.subtotal %></h3>
-<h3>Tax: <%= @order.tax %></h3>
-<h3>Total: <%= @order.total %></h3>
+<h3>Subtotal: <%= number_to_currency(@order.subtotal) %></h3>
+<h3>Tax: <%= number_to_currency(@order.tax) %></h3>
+<h3>Total: <%= number_to_currency(@order.total) %></h3>
 <hr>
 <h3>Email: <%= @order.user.email %></h3>
 <hr>
