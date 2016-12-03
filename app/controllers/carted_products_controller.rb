@@ -28,5 +28,5 @@ class CartedProductsController < ApplicationController
     flash[:success] = "Product removed!"
     redirect_to "/carted_products"
   end
-
+  
 end
