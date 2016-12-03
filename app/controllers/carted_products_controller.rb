@@ -9,7 +9,6 @@ class CartedProductsController < ApplicationController
     end
   end
 
-
   def create
     carted_product = CartedProduct.new(
       user_id: current_user.id,
@@ -21,4 +20,13 @@ class CartedProductsController < ApplicationController
     flash[:success] = "Added to cart successfullly!"
     redirect_to "/carted_products"
   end
+
+  def destroy
+    carted_product = CartedProduct.find_by(id: params[:id])
+    carted_product.status = "removed"
+    carted_product.save
+    flash[:success] = "Product removed!"
+    redirect_to "/carted_products"
+  end
+
 end
