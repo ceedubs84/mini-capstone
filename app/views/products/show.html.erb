@@ -16,14 +16,16 @@
         <p>Total: <%= number_to_currency(@product.total) %></p>
         <p>Supplier: <%= @product.supplier.name %></p>
       </div>
-      <h3>Categories: 
-        <% @product.categories.each do |category| %>
-          <a href="/products?category_name=<%= category.name %>"><%= category.name %></a>
-        <% end %>
-      </h3>
+      <div>
+        <h3>Categories: 
+          <% @product.categories.each do |category| %>
+            <a href="/products?category_name=<%= category.name %>"><%= category.name %></a>
+          <% end %>
+        </h3>
+      </div>
       <div class="col-md-8">
         <% @product.images.each do |image| %>
-          <div>
+          <div class="img">
             <img src="<%= image.url %>" alt="<%= @product.name %>" class="img-responsive">
           </div>
         <% end %>
