@@ -3,36 +3,44 @@
   <div class="container-fluid">
     <div class="row">    
       <div class="col-md-4">
-        <div class="product_single">
-            <h2><%= @product.name %></h2>
-            <% if @product.discounted? %>
-              <p class="discount-item">Price: <%= number_to_currency(@product.price) %></p>
-              <p>Discount Item!</p>
-            <% else %>
-              <p>Price: <%= number_to_currency(@product.price) %></p>
-              <p>Description: <%= @product.description %></p>
-              <p><em>Quotidian Worth; Our Promise to</em> <strong>YOU</strong>!</p>
-            <% end %>
-            <p>Tax: <%= number_to_currency(@product.tax) %></p>
-            <p>Total: <%= number_to_currency(@product.total) %></p>
-            <p>Supplier: <%= @product.supplier.name %></p>
-            <div class="col-md-8">
-              <% @product.images.each do |image| %>
-                <img src="<%= image.url %>" alt="<%= @product.name %>" class="img-responsive">
-              <% end %>
-            </div>
-            <%= form_tag "/orders", method: :post do %>
-              <div>
-                <%= label_tag :quantity %>
-                <%= text_field_tag :quantity %>
-              </div>
-              <div>
-                <%= hidden_field_tag :product_id, @product.id %>
-              </div>
-              <%= submit_tag "Place order!" %>
-            <% end %>
-            <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
-            <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
+        <h2><%= @product.name %></h2>
+        <% if @product.discounted? %>
+          <p class="discount-item">Price: <%= number_to_currency(@product.price) %></p>
+          <p>Discount Item!</p>
+        <% else %>
+          <p>Price: <%= number_to_currency(@product.price) %></p>
+          <p>Description: <%= @product.description %></p>
+          <p><em>Quotidian Worth; Our Promise to</em> <strong>YOU</strong>!</p>
+        <% end %>
+        <p>Tax: <%= number_to_currency(@product.tax) %></p>
+        <p>Total: <%= number_to_currency(@product.total) %></p>
+        <p>Supplier: <%= @product.supplier.name %></p>
+      </div>
+      <h3>Categories: 
+        <% @product.categories.each do |category| %>
+          <a href="/products?category_name=<%= category.name %>"><%= category.name %></a>
+        <% end %>
+      </h3>
+      <div class="col-md-8">
+        <% @product.images.each do |image| %>
+          <div>
+            <img src="<%= image.url %>" alt="<%= @product.name %>" class="img-responsive">
+          </div>
+        <% end %>
+      </div>
+        <%= form_tag "/orders", method: :post do %>
+          <div>
+            <%= label_tag :quantity %>
+            <%= text_field_tag :quantity %>
+          </div>
+          <div>
+            <%= hidden_field_tag :product_id, @product.id %>
+          </div>
+          <%= submit_tag "Place order!" %>
+        <% end %>
+        <div>
+          <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
+          <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
         </div>
       </div>
     </div>

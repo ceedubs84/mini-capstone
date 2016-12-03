@@ -31,8 +31,8 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort By<span class="caret"></span></a>
           <ul class="dropdown-menu">Sort By
             <li><a href="/products?sort=name">Name</a></li>
-            <li><a href="/products?sort=price&sort_order=asc">Price Ascending</a></li>
-            <li><a href="/products?sort=price&sort_order=desc">Price Descending</a></li>
+            <li><a href="/products?sort=price&sort_order=asc">Price (Low - High)</a></li>
+            <li><a href="/products?sort=price&sort_order=desc">Price (High - Low)</a></li>
             <li class="divider"></li>
             <% Category.all.each do |category| %>
               <li><a href="/products?category_name=<%= category.name %>"><%= category.name %> only</a></li>
@@ -44,10 +44,11 @@
         </li>
       </ul>
       <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <%= form_tag "/search", method: :post do %>
+          <%= label_tag :search %>
+          <%= text_field_tag :search %>
+          <%= submit_tag "Search" %>
+        <% end %>
       </form>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>

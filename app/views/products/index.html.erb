@@ -6,13 +6,13 @@
 
       <div class="col-sm-4">
         <div class="product_single">
-          <div class="well">
+          <div class="product_single_image">
             <h3 class="product_header"><%= product.name %></h3>
             <p>Supplier: <%= product.supplier.name %></p>
             <p>Price: <%= number_to_currency(product.price) %></p>
           </div>
-          <div class="well">
-            <a href="/products/<%= product.id %>" title="View Product"><img src="<%= product.images.first.url %>" alt="<%= product.name %>" class="img-responsive product_single_image"></a>
+          <div class="well well-sm">
+            <a href="/products/<%= product.id %>" title="View Product"><img src="<%= product.images.first.url %>" class="img-responsive" alt="Responsive image">
           </div>
           <p>Description: <%= product.description %></p>
         </div>
