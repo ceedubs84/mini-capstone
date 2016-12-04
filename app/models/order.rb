@@ -12,5 +12,5 @@ class Order < ApplicationRecord
     total = subtotal + tax
     update(subtotal: subtotal, tax: tax, total: total)
   end
-  
+
 end

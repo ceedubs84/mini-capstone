@@ -26,9 +26,12 @@ class ProductsController < ApplicationController
       description: params[:description],
       price: params[:price]
     )
-    @product.save
-    flash[:success] = "Product Created"
-    redirect_to "/products/#{@product.id}"
+    if @product.save
+      flash[:success] = "Product Created"
+      redirect_to "/products/#{@product.id}"
+    else
+      render 'new.html.erb'
+    end
   end
 
   def show
@@ -50,11 +53,14 @@ class ProductsController < ApplicationController
     @product = Product.find_by(id: params[:id])
     @product.name = params[:name]
     @product.description = params[:description]
-    @product.image = params[:image]
+    # @product.image = params[:image]
     @product.price = params[:price]
-    @product.save
-    flash[:success] = "Product Updated"
-    redirect_to "/products/#{@product.id}"
+    if @product.save
+      flash[:success] = "Product Updated"
+      redirect_to "/products/#{@product.id}"
+    else
+      render 'edit.html.erb'
+    end
   end
 
   def search
