@@ -40,10 +40,12 @@
           </div>
           <%= submit_tag "Add to Cart!" %>
         <% end %>
-        <div>
-          <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
-          <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
-        </div>
+        <% if current_user && current_user.admin %>
+          <div>
+            <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
+            <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>  

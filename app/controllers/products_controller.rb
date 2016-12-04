@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_admin!, except: [:index, :show, :search]
-  
+
   def index
     only_show_discount = params[:discount] == "true"
     if only_show_discount
@@ -24,7 +24,6 @@ class ProductsController < ApplicationController
     @product = Product.new(
       name: params[:name],
       description: params[:description],
-      image: params[:image],
       price: params[:price]
     )
     @product.save
