@@ -26,7 +26,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <% if current_user && current_user.admin %>
-            <li><%= link_to "Add New Product", "products/new", class: "btn btn-default" %></li>
+            <li><%= link_to "Add New Product", "/products/new", class: "btn btn-default" %></li>
         <% end %>
         <!-- <li><a href="#">Link</a></li> -->
         <li class="dropdown">
